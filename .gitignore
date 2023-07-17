@@ -5,7 +5,7 @@ build/
 !**/src/test/**/build/
 
 ### DATA FOLDER ###
-datadir/postgres/pgdata
+datadir/postgres/pgdata/
 
 ### STS ###
 .apt_generated
