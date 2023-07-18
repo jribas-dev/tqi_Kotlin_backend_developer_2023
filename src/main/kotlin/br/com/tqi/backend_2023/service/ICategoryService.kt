@@ -6,5 +6,6 @@ interface ICategoryService {
     fun save(category: Category): Category
     fun findByCategoryId(categoryId: Int): Category
     fun findAllByParent(parentId: Int?): Set<Category>
+    fun findAllByRoot(): Set<Category>
     fun deleteByCategoryId(categoryId: Int): Map<String, String>
 }

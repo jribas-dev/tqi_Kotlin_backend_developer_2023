@@ -25,6 +25,10 @@ class CategoryService(
         return this.categoryRepository.findAllByParentId(parentId)
     }
 
+    override fun findAllByRoot(): Set<Category> {
+        return this.categoryRepository.findAllByRoot()
+    }
+
     override fun deleteByCategoryId(categoryId: Int): Map<String, String> {
         val category: Category = this.categoryRepository.findById(categoryId).orElseThrow {
             throw BusinessException("Category Id $categoryId not exists")

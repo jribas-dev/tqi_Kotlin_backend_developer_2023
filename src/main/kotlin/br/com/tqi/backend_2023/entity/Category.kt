@@ -11,7 +11,7 @@ data class Category(
     @Column(nullable = false)
     val categoryName: String = "",
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "parentId")
     val categoryParent: Category? = null,
 

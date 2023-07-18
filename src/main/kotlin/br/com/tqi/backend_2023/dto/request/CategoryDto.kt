@@ -6,10 +6,10 @@ import jakarta.validation.constraints.NotEmpty
 data class CategoryDto(
     @field:NotEmpty(message = "Category Name must be informed")
     val categoryName: String,
-    val categoryParent: Int?
+    val categoryParent: Category?
 ) {
     fun toEntity(): Category = Category (
         categoryName = this.categoryName,
-        categoryParent = Category(categoryId = this.categoryParent)
+        categoryParent = this.categoryParent
     )
 }
