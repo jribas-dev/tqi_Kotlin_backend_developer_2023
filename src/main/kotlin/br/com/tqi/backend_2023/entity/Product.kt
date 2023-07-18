@@ -23,5 +23,5 @@ data class Product(
         cascade = [CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE]
     )
     @JoinColumn(name = "categoryId")
-    val category: Category? = null,
+    var category: Category? = null,
 )
