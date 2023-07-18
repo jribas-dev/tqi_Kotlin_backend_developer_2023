@@ -12,6 +12,7 @@ interface CategoryRepository: JpaRepository<Category, Int> {
 
     @Query(value = "SELECT COALESCE(COUNT(*), 0) AS PARENT_COUNT FROM CATEGORY WHERE CATEGORY_PARENT = ?1", nativeQuery = true)
     fun parentCount(parentId: Int?) : Int
+
     @Query(value = "SELECT * FROM CATEGORY WHERE CATEGORY_PARENT IS NULL", nativeQuery = true)
     fun findAllByRoot() : List<Category>
 }
