@@ -1,4 +1,4 @@
-package br.com.tqi.backend_2023.repository;
+package br.com.tqi.backend_2023.repository
 
 import br.com.tqi.backend_2023.entity.Product
 import org.springframework.data.jpa.repository.JpaRepository
