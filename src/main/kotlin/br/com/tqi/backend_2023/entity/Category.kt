@@ -11,10 +11,5 @@ data class Category(
     @Column(nullable = false)
     val categoryName: String = "",
 
-    @ManyToOne()
-    @JoinColumn(name = "parentId")
-    val categoryParent: Category? = null,
-
-    @OneToMany(mappedBy = "categoryParent")
-    val subCategories: Set<Category> = mutableSetOf(),
+    val categoryParent: Int? = null,
 )

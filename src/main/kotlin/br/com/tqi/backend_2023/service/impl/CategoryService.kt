@@ -21,17 +21,25 @@ class CategoryService(
         }
     }
 
-    override fun findAllByParent(parentId: Int?): Set<Category> {
+    override fun findAllByParent(parentId: Int?): List<Category> {
         return this.categoryRepository.findAllByParentId(parentId)
     }
 
-    override fun findAllByRoot(): Set<Category> {
+    override fun findAllByRoot(): List<Category> {
         return this.categoryRepository.findAllByRoot()
+    }
+
+    override fun parentCount(parentId: Int?): Int {
+        return this.categoryRepository.parentCount(parentId)
     }
 
     override fun deleteByCategoryId(categoryId: Int): Map<String, String> {
         val category: Category = this.categoryRepository.findById(categoryId).orElseThrow {
             throw BusinessException("Category Id $categoryId not exists")
+        }
+        val parentCount: Int = this.categoryRepository.parentCount(categoryId)
+        if (parentCount > 0) {
+            return mutableMapOf("Category" to category.categoryName, "Message" to "Cannot be deleted, $parentCount parents found")
         }
         this.categoryRepository.deleteById(categoryId)
         return mutableMapOf("Category" to category.categoryName, "Message" to "Has been deleted")

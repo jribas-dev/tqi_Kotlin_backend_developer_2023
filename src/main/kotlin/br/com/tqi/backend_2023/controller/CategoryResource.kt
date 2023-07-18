@@ -31,21 +31,21 @@ class CategoryResource (private val categoryService: CategoryService) {
     }
 
     @GetMapping("/list")
-    fun listByRoot(): ResponseEntity<Set<CategoryView>> {
-        val categorySet: MutableSet<CategoryView>? = this.categoryService.findAllByRoot()
+    fun listByRoot(): ResponseEntity<List<CategoryView>> {
+        val categoryList: MutableList<CategoryView>? = this.categoryService.findAllByRoot()
             .stream()
             .map { category: Category -> CategoryView(category) }
-            .collect(Collectors.toSet())
-        return ResponseEntity.status(HttpStatus.OK).body(categorySet)
+            .collect(Collectors.toList())
+        return ResponseEntity.status(HttpStatus.OK).body(categoryList)
     }
 
     @GetMapping("/list/{id}")
-    fun listByParent(@PathVariable(required = false) id: Int?): ResponseEntity<Set<CategoryView>> {
-        val categorySet: MutableSet<CategoryView>? = this.categoryService.findAllByParent(id)
+    fun listByParent(@PathVariable(required = false) id: Int?): ResponseEntity<List<CategoryView>> {
+        val categoryList: MutableList<CategoryView>? = this.categoryService.findAllByParent(id)
             .stream()
             .map { category: Category -> CategoryView(category) }
-            .collect(Collectors.toSet())
-        return ResponseEntity.status(HttpStatus.OK).body(categorySet)
+            .collect(Collectors.toList())
+        return ResponseEntity.status(HttpStatus.OK).body(categoryList)
     }
 
     @DeleteMapping("/{id}")
