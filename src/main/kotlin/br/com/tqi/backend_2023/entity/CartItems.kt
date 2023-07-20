@@ -10,11 +10,11 @@ data class CartItems(
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "cartCode")
-    val cart: Cart? = null,
+    var cart: Cart? = null,
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "productId")
-    val product: Product? = null,
+    var product: Product? = null,
 
     @Column(nullable = false)
     val salePrice: Double = 0.00,

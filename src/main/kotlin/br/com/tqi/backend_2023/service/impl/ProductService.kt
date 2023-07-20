@@ -1,6 +1,7 @@
 package br.com.tqi.backend_2023.service.impl
 
 import br.com.tqi.backend_2023.entity.Product
+import br.com.tqi.backend_2023.exception.BusinessException
 import br.com.tqi.backend_2023.repository.ProductRepository
 import br.com.tqi.backend_2023.service.IProductService
 import org.springframework.stereotype.Service
@@ -24,6 +25,10 @@ class ProductService (
         } else {
             this.productRepository.findAllByCategoryId(categoryId)
         }
+    }
+
+    override fun findProductById(productId: Long): Product {
+        return (this.productRepository.findById(productId).orElseThrow() ?: throw BusinessException("Product ID $productId not exist"))
     }
 
 }

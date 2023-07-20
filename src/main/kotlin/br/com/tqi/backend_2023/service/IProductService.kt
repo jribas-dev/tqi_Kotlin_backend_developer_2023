@@ -6,4 +6,6 @@ interface IProductService {
     fun save(product: Product): Product
 
     fun findAllByCategory(categoryId: Int?): List<Product>
+
+    fun findProductById(productId: Long): Product
 }
