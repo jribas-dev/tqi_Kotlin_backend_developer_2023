@@ -7,6 +7,6 @@ interface ICartService {
 
     fun new(): Cart
 
-    fun findByCartCode(cartCode: UUID): Cart
+    fun findByCartCode(cartCode: UUID): Cart?
 
 }

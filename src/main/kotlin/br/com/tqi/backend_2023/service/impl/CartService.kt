@@ -17,7 +17,7 @@ class CartService (
         return this.cartRepository.save(cart)
     }
 
-    override fun findByCartCode(cartCode: UUID): Cart {
+    override fun findByCartCode(cartCode: UUID): Cart? {
         return (this.cartRepository.findById(cartCode).orElseThrow() ?: throw BusinessException("Cart Code $cartCode not exist"))
     }
 

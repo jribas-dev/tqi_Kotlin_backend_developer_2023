@@ -11,5 +11,5 @@ data class Cart(
     val cartCode: UUID? = null,
 
     @Enumerated
-    val cartStatus: CartStatus = CartStatus.OPENED,
+    var cartStatus: CartStatus = CartStatus.OPENED,
 )
