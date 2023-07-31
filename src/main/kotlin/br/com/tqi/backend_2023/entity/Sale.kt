@@ -15,7 +15,7 @@ data class Sale(
     val cart: Cart? = null,
 
     @Enumerated
-    val saleStatus: SaleStatus = SaleStatus.IN_PROGRESS,
+    var saleStatus: SaleStatus = SaleStatus.IN_PROGRESS,
 
     @Column(nullable = false)
     val saleDate: LocalDateTime = LocalDateTime.now(),
@@ -24,5 +24,5 @@ data class Sale(
     val totalSale: Double = 0.00,
 
     @Column(nullable = false)
-    val totalPaid: Double = 0.00,
+    var totalPaid: Double = 0.00,
 )
