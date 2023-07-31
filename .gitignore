@@ -3,7 +3,6 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-.jpb
 
 ### DATA FOLDER ###
 datadir/postgres/pgdata/
@@ -38,3 +37,4 @@ out/
 
 ### VS Code ###
 .vscode/
+/.jpb/
